@@ -1,24 +1,11 @@
-let homeScore = document.getElementsByClassName('score')[0];
-let guestScore = document.getElementsByClassName('score')[1];
+document.querySelectorAll(".btn").forEach((button) => {
+  button.addEventListener("click", () => {
+    const team = button.dataset.team;
+    const points = parseInt(button.dataset.points);
+    const column = document.getElementById(team);
+    const scoreEl = column.querySelector(".score");
 
-let count = 0;
-
-function add1() {
-    count++ 
-    homeScore.textContent = count;
-    console.log(count)
-}
-
-function add2() {
-    count++ 
-    homeScore.textContent = count;
-    console.log(count)
-}
-
-// function add1() {
-//     console.log("test")
-// }
-
-// function add1() {
-//     console.log("test")
-// }
+    let currentScore = parseInt(scoreEl.textContent);
+    scoreEl.textContent = currentScore + points;
+  });
+});
